@@ -8,14 +8,10 @@ import { ReviewModel } from './review.model';
 
 @Injectable()
 export class ReviewService {
-  private reviewModel: ModelType<ReviewModel>;
-
-  сonstructor(
+  constructor(
     @InjectModel(ReviewModel)
-    reviewModel: ModelType<ReviewModel>,
-  ) {
-    this.reviewModel = reviewModel;
-  }
+    private readonly reviewModel: ModelType<ReviewModel>,
+  ) {}
 
   async create(dto: CreateReviewDto): Promise<DocumentType<ReviewModel>> {
     return this.reviewModel.create(dto);
