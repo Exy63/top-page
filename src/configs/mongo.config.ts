@@ -18,8 +18,7 @@ const getMongoString = (configService: ConfigService): string =>
   ':' +
   configService.get('MONGO_PORT') +
   '/' +
-  configService.get('MONGO_AUTHDATABASE') +
-  ';';
+  configService.get('MONGO_AUTHDATABASE');
 
 const getMongoOptions = () => ({
   useNewUrlParser: true,
