@@ -9,8 +9,8 @@ class ProductCharacteristic {
   value: string;
 }
 
-export interface ProductModel extends Base, TimeStamps {}
-export class ProductModel {
+export interface ProductModel extends Base {}
+export class ProductModel extends TimeStamps {
   @Prop()
   image: string;
 
