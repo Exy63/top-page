@@ -4,7 +4,7 @@ import * as request from 'supertest';
 import { Types, disconnect } from 'mongoose';
 import { AppModule } from '../src/app.module';
 import { CreateReviewDto } from '../src/review/dto/create-review.dto';
-import { REVIEW_NOT_FOUND } from '../src/review/review.constants';
+import { REVIEW_NOT_FOUND_ERROR } from '../src/review/review.constants';
 import { AuthDto } from 'src/auth/dto/auth.dto';
 
 const productId = new Types.ObjectId().toHexString();
@@ -89,7 +89,7 @@ describe('ReviewController (e2e)', () => {
     return request(app.getHttpServer())
       .delete('/review/' + createdId)
       .set('Authorization', 'Bearer ' + token)
-      .expect(404, { statusCode: 404, message: REVIEW_NOT_FOUND });
+      .expect(404, { statusCode: 404, message: REVIEW_NOT_FOUND_ERROR });
   });
 
   afterAll(() => {
