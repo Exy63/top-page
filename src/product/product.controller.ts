@@ -20,6 +20,7 @@ import { ProductService } from './product.service';
 @Controller('product')
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
+  @UsePipes(new ValidationPipe())
   @Post('create')
   async create(@Body() dto: CreateProductDto) {
     return this.productService.create(dto);
