@@ -33,7 +33,7 @@ export class TopPageAdvantage {
 export interface TopPageModel extends Base {}
 export class TopPageModel extends TimeStamps {
   @Prop({ enum: TopLevelCategory })
-  firstLevelCategory: TopLevelCategory;
+  firstCategory: TopLevelCategory;
 
   @Prop()
   secondCategory: string;
